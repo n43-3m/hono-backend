@@ -3,6 +3,7 @@ import z from 'zod'
 const ENVSchema = z.object({
 	PORT: z.coerce.number().min(1, 'port must be greater than 0').max(65535, 'port must be less than 65535'),
 	DEPLOYMENT: z.enum(['dev', 'prod']).default('dev'),
+	DATABASE_URL: z.url(),
 })
 
 const result = ENVSchema.safeParse(process.env)
