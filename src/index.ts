@@ -1,10 +1,11 @@
 import { serve } from '@hono/node-server'
 import app from '@/app.js'
+import env from './lib/env.js'
 
 serve(
 	{
 		fetch: app.fetch,
-		port: 3000,
+		port: env.PORT || 3000,
 	},
 
 	(info) => {
