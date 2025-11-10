@@ -17,7 +17,7 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx}": " bun biomecheck",
-		"*.{json,css,html}": "bun format"
+		"*.{json,css,html,jsonc}": "bun format"
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.7.4",
