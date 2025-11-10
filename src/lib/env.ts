@@ -7,7 +7,7 @@ const ENVSchema = z.object({
 		.max(65535, 'port must be less than 65535')
 		.default(3000),
 	DEPLOYMENT: z.enum(['dev', 'prod']).default('dev'),
-	// DATABASE_URL: z.string().min(1, 'database url is required'),
+	DATABASE_URL: z.string().min(1, 'database url is required'),
 })
 
 const result = ENVSchema.safeParse(process.env)
