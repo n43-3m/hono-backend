@@ -28,7 +28,7 @@ This starter kit comes with a default route:
 - make sure to update the `name` and `version` fields in the `package.json` file.
 
 ## Note:
-- this kit is initialized for nodeJs. if u want to use any other run time make sure to follow the official guide. in future maybe i will add cloudflare support but still not sure abt that :)
+- this kit is initialized for nodeJs. if u want to use any other run time make sure to follow the official guide. `note:` i've added bun runtime you can now get it from `bun-setup` branch. in future i will add cloudflare support but still not sure abt that :)
 - also this kit uses `lib/env.ts` file to manage ur environment variables. after adding something to ur .env file make sure u add them in ur `env.ts` file for type safety and run time validation.
 
 
@@ -48,10 +48,15 @@ Clone the repository and install the dependencies:
    https://github.com/n43-3m/hono-backend.git
    cd hono-backend
    ```
+   1.1. **change branch to bun-setup ( skip this part if u r gonna use node)**
+      
+      ```bash
+      git checkout bun-setup
+      ```
 2. **Install the Dependencies:**
 
    ```bash
-   pnpm i
+   bun i
    ```
 3. **remove the `.git` folder and initialize a new git repository :**
    ### For Linux/MacOS:
@@ -70,7 +75,7 @@ Clone the repository and install the dependencies:
 To run the project, use the following command:
 
 ```bash
-pnpm dev
+bun dev
 ```
 
 This will start the development server on `http://localhost:3000` or port specified in `.env` file.
@@ -80,7 +85,7 @@ This will start the development server on `http://localhost:3000` or port specif
 To build the project, use the following command:
 
 ```bash
-pnpm build
+bun build
 ```
 
 This will generate a production-ready build in the `dist` folder.

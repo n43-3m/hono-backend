@@ -1,11 +1,11 @@
+import { SQL } from 'bun'
+import { drizzle } from 'drizzle-orm/bun-sql'
 import { DefaultLogger } from 'drizzle-orm/logger'
-import { drizzle } from 'drizzle-orm/node-postgres'
-import { Client } from 'pg'
 import env from '@/lib/env.js'
 
 export async function checkDb() {
 	try {
-		const client = new Client({ connectionString: env.DATABASE_URL })
+		const client = new SQL(env.DATABASE_URL)
 		await client.connect()
 		await client.end()
 	} catch (err) {
@@ -19,13 +19,10 @@ class MyLogger extends DefaultLogger {
 		console.log({ query, params })
 	}
 }
+const client = new SQL(env.DATABASE_URL)
 
-// You can specify any property from the node-postgres connection options
 const db = drizzle({
-	connection: {
-		connectionString: env.DATABASE_URL,
-		ssl: true,
-	},
+	client,
 	casing: 'snake_case',
 	logger: env.DEPLOYMENT === 'dev' ? new MyLogger() : false,
 })
