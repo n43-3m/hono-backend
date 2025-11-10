@@ -16,8 +16,8 @@
 		"db:studio": "drizzle-kit studio --config src/lib/drizzle.config.ts"
 	},
 	"lint-staged": {
-		"*.{ts,tsx,js,jsx}": " pnpm biomecheck",
-		"*.{json,css,html}": "pnpm format"
+		"*.{ts,tsx,js,jsx}": " bun biomecheck",
+		"*.{json,css,html}": "bun format"
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.7.4",
